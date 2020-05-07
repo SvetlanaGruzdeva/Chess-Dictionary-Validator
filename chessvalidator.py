@@ -1,5 +1,6 @@
 chess_board = {'1h': 'bpawn', '6c': 'wqueen', '2g': 'bbishop', '5h': 'bqueen', '3e': 'wking'}
 
+# bla poop
 def name_check(chess_board):
     print('Executing name_check')
     correct_names_list = []
