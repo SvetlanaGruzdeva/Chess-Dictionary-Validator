@@ -1,0 +1,20 @@
+ 2020-05-25 10:55:39,246 - INFO - Executing IS_VALID_CHESS_BOARD
+ 2020-05-25 10:55:39,246 - INFO - Executing NAMES_CHECK
+ 2020-05-25 10:55:39,247 - DEBUG - piece_name_check False
+ 2020-05-25 10:55:39,247 - DEBUG - board_check False
+ 2020-05-25 10:55:39,248 - DEBUG - NAMES_CHECK is False
+ 2020-05-25 10:55:39,248 - INFO - Executing AMOUNTS_CHECK
+ 2020-05-25 10:55:39,248 - DEBUG - total_amount_check False
+ 2020-05-25 10:55:39,249 - INFO - pawns_check True
+ 2020-05-25 10:55:39,249 - DEBUG - kings_check False
+ 2020-05-25 10:55:39,249 - INFO - AMOUNT_CHECK is False
+ 2020-05-25 10:56:24,635 - INFO - Executing IS_VALID_CHESS_BOARD
+ 2020-05-25 10:56:24,635 - INFO - Executing NAMES_CHECK
+ 2020-05-25 10:56:24,635 - DEBUG - piece_name_check False
+ 2020-05-25 10:56:24,636 - DEBUG - board_check False
+ 2020-05-25 10:56:24,637 - DEBUG - NAMES_CHECK is False
+ 2020-05-25 10:56:24,637 - INFO - Executing AMOUNTS_CHECK
+ 2020-05-25 10:56:24,637 - INFO - total_amount_check True
+ 2020-05-25 10:56:24,637 - INFO - pawns_check True
+ 2020-05-25 10:56:24,637 - DEBUG - kings_check False
+ 2020-05-25 10:56:24,637 - INFO - AMOUNT_CHECK is False

@@ -2,7 +2,7 @@
 # chessvalidator - checks if provided chess board is valid
 
 import logging
-logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='chessValidatorLog.txt', level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
 
 # TODO: add validation that no cells appear more than 1 time
 chess_board = {'1h': 'bpawn', '6c': 'wqueen', '2g': 'bbishop', '5h': 'bqueen', '3e': 'wking', '3f': ''}
@@ -71,10 +71,10 @@ def amounts_check(chess_board):
     logging.info('Executing AMOUNTS_CHECK')
     b_counter = 0
     w_counter = 0
-    max_amount = 1 #16
+    max_amount = 16 #16
     bpawn_counter = 0
     wpawn_counter = 0
-    max_pawn_amount = 1 #8
+    max_pawn_amount = 8 #8
     bking_counter = 0
     wking_counter = 0
     max_king_amount = 1
@@ -146,6 +146,6 @@ def is_valid_chess_board(chess_board):
         print('Your board is invalid')
         return False
     
-logging.disable(logging.CRITICAL)
+# logging.disable(logging.CRITICAL)
 
 print(str(is_valid_chess_board(chess_board)))
