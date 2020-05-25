@@ -1,3 +1,8 @@
+#! python3
+# chessvalidator - checks if provided chess board is valid
+
+
+
 chess_board = {'1h': 'bpawn', '6c': 'wqueen', '2g': 'bbishop', '5h': 'bqueen', '3e': 'wking', '3f': ''}
 
 def names_check(chess_board):
