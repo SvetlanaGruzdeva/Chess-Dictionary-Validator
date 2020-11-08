@@ -1,7 +1,18 @@
+#! python3
+# chessvalidator - checks if provided chess board is valid
+
+import logging
+logging.basicConfig(filename='chessValidatorLog.txt', level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
+
+# TODO: add validation that no cells appear more than 1 time
 chess_board = {'1h': 'bpawn', '6c': 'wqueen', '2g': 'bbishop', '5h': 'bqueen', '3e': 'wking', '3f': ''}
 
+# Dictionary with invalid items for testing
+invalid_items = {'10z': '', '': 'wking', '2a': 'zpawn', '3a': 'zqueen'}
+chess_board.update(invalid_items)
+
 def names_check(chess_board):
-    print('Executing NAMES_CHECK')
+    logging.info('Executing NAMES_CHECK')
     colour_list = ['b', 'w']
     pieces_list = ['pawn', 'knight', 'bishop', 'rook', 'queen', 'king']
     correct_names_list = []
@@ -35,34 +46,35 @@ def names_check(chess_board):
             if value not in correct_names_list:
                 wrong_names_list.append(value)
 
-        # Error messages
-        if wrong_names_list:
-            print('piece_name_check False')
-            print(f"Piece names {', '.join(wrong_names_list)} are incorrect")
-        else:
-            print('piece_name_check True')
-        if wrong_position_list:
-            print('board_check False')
-            print(f"Positions {', '.join(wrong_position_list)} are invalid")
-        else:
-            print('board_check True')
+    # Error messages
+    if wrong_names_list:
+        logging.debug('piece_name_check False')
+        print(f"Piece names {', '.join(wrong_names_list)} are incorrect")
+    else:
+        logging.info('piece_name_check True')
+    if wrong_position_list:
+        logging.debug('board_check False')
+        print(f"Positions {', '.join(wrong_position_list)} are invalid")
+    else:
+        logging.info('board_check True')
 
     # Final output of function
     if not wrong_names_list and not wrong_position_list:
-        print('NAMES_CHECK is True')
+        logging.info('NAMES_CHECK is True')
         return True
     else:
-        print('NAMES_CHECK is False')
+        logging.debug('NAMES_CHECK is False')
         return False
+    
 
 def amounts_check(chess_board):
-    print('Executing AMOUNTS_CHECK')
+    logging.info('Executing AMOUNTS_CHECK')
     b_counter = 0
     w_counter = 0
-    max_amount = 16
+    max_amount = 16 #16
     bpawn_counter = 0
     wpawn_counter = 0
-    max_pawn_amount = 8
+    max_pawn_amount = 8 #8
     bking_counter = 0
     wking_counter = 0
     max_king_amount = 1
@@ -84,45 +96,46 @@ def amounts_check(chess_board):
                 wking_counter = wking_counter + 1
 
     if b_counter <= max_amount and w_counter <= max_amount:
-        print('total_amount_check True')
+        logging.info('total_amount_check True')
     else:
         if b_counter > max_amount:
+            logging.debug('total_amount_check False')
             print(f'Total amount {b_counter} of black pieces if more than {max_amount}')
-            print('total_amount_check False')
         else:
+            logging.debug('total_amount_check False')
             print(f'Total amount {w_counter} of white pieces if more than {max_amount}')
-            print('total_amount_check False')
 
     if bpawn_counter <= max_pawn_amount and wpawn_counter <= max_pawn_amount:
-        print('pawns_check True')
+        logging.info('pawns_check True')
     else:
         if bpawn_counter > max_pawn_amount:
+            logging.debug('pawns_check False')
             print(f'Total amount {bpawn_counter} of black pawns if more than {max_pawn_amount}')
-            print('pawns_check False')
         else:
+            logging.debug('pawns_check False')
             print(f'Total amount {wpawn_counter} of white pawns if more than {max_pawn_amount}')
-            print('pawns_check False')
 
     if bking_counter <= max_king_amount and wking_counter <= max_king_amount:
-        print('kings_check True')
+        logging.info('kings_check True')
     else:
         if bking_counter > max_king_amount:
+            logging.debug('kings_check False')
             print(f'Total amount {bking_counter} of black kings if more than {max_king_amount}')
-            print('kings_check False')
         else:
+            logging.debug('kings_check False')
             print(f'Total amount {wking_counter} of white kings if more than {max_king_amount}')
-            print('kings_check False')
 
     if b_counter <= max_amount and w_counter <= max_amount and bpawn_counter <= max_pawn_amount and wpawn_counter <= max_pawn_amount\
         and bking_counter <= max_king_amount and wking_counter <= max_king_amount:
-        print('AMOUNTS_CHECK is True')
+        logging.info('AMOUNTS_CHECK is True')
         return True
     else:
-        print('AMOUNT_CHECK is False')
+        logging.info('AMOUNT_CHECK is False')
         return False
+    
 
 def is_valid_chess_board(chess_board):
-    print('Executing IS_VALID_CHESS_BOARD')
+    logging.info('Executing IS_VALID_CHESS_BOARD')
     names_check_result = names_check(chess_board)
     amounts_check_result = amounts_check(chess_board)
     
@@ -132,5 +145,7 @@ def is_valid_chess_board(chess_board):
     else:
         print('Your board is invalid')
         return False
+    
+# logging.disable(logging.CRITICAL)
 
 print(str(is_valid_chess_board(chess_board)))
